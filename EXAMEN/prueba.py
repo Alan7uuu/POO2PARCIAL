@@ -1,2 +1,4 @@
-for i in range(0,5):
-    print(i)
+tamaño="alan"
+a=["alan"]
+for a in range (tamaño):
+    print(a)

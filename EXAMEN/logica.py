@@ -1,4 +1,5 @@
-
+import random
+from tkinter import messagebox
 nombre=[]
 apellidopat=[]
 apellidomat=[]
@@ -19,12 +20,16 @@ class logica:
         apellidomat.append(c)
         añonac.append(d)
         carrera.append(e)
-        print(a,b,c,d,e)
-    def generar(self, unoa,unob,unoc,unod,unoe):
-        unoa="alan"
-        unoa=i
-        for i in range(0,2):
-            print(i)
+
+       
+    def generar():
+        tamaño=2
+        
+        
+        mat=[random.choice(numeros)for i in range(tamaño)]
+        matricula=mat
+        messagebox.showinfo(f"matricula es:",{matricula} )
+       
         
         
     

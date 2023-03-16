@@ -24,8 +24,10 @@ unoee=Entry(ventana,textvariable=unoe).pack()
 axc=logica()
 def guardado():
     axc.guardar(unoa.get(),unob.get(),unoc.get(),unod.get(),unoe.get())
+
 #Botones
-BotonGenerar=Button(ventana,text="Guardar",bg="black", fg="white", command=guardado).pack()
+BotonGuardar=Button(ventana,text="Generar",bg="black", fg="white", command=guardado).pack()
+
 
 
 ventana.mainloop()
