@@ -9,7 +9,7 @@ numeros="0123456789"
 class logica:
     def __init__(self):
         self
-    def guardar(self, unoa,unob,unoc,unod,unoe):
+    def generar(self, unoa,unob,unoc,unod,unoe):
         a=str(unoa)
         b=str(unob)
         c=str(unoc)
@@ -20,15 +20,13 @@ class logica:
         apellidomat.append(c)
         añonac.append(d)
         carrera.append(e)
-
-       
-    def generar():
+        
         tamaño=2
         
-        
         mat=[random.choice(numeros)for i in range(tamaño)]
-        matricula=mat
-        messagebox.showinfo(f"matricula es:",{matricula} )
+        messagebox.showinfo(f'matricula es:"{mat}"' )
+       
+    
        
         
         
