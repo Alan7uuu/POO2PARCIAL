@@ -1,6 +1,13 @@
 from tkinter import*
 from tkinter import ttk
 import tkinter as tk
+from controladorBD import* #1 presentamos los archivos
+#2 crear un objeto de la clase controlador 
+controlador=controladorBD()
+
+#3.funcion para disparar el boton
+def ejecutainsert():
+    controladorBD.guardarusuario(varnom.get(),varcorr.get(),varcontra.get())
 #ventana  inicial
 
 ventana= Tk ()
@@ -25,7 +32,7 @@ txtccorr=Entry(pestaña1,textvariable=varcorr).pack()
 varcontra=tk.StringVar()
 titulo=Label(pestaña1,text="Contraseña",fg='red',font=("modern",14)).pack()
 txtcontra=Entry(pestaña1,textvariable=varcontra).pack()
-botonregistro=Button(pestaña1,text="Realizar Registro").pack()
+botonregistro=Button(pestaña1,text="Realizar Registro",command=ejecutainsert).pack()
 #pestaña2
 ventana2.add(pestaña1,text='Registro de Datos')
 ventana2.add(pestaña2,text='Buscar Usuario')
