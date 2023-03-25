@@ -27,9 +27,9 @@ class controladorBD:
             qrInsert="insert into TBRegistrados(nombre,correo,contra) values (?,?,?)"
             
             #4. ejecutar insert y cerramos conexion
-            cursor.executable(qrInsert,datos)
+            cursor.execute(qrInsert,datos)
             conx.commit()
-            conx.close
+            conx.close()
             messagebox.showinfo("exito","usuario guardado")
     def encriptarCon(self,contra):
         conPlana= contra

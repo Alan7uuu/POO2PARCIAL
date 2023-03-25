@@ -7,7 +7,7 @@ controlador=controladorBD()
 
 #3.funcion para disparar el boton
 def ejecutainsert():
-    controladorBD.guardarusuario(varnom.get(),varcorr.get(),varcontra.get())
+    controlador.guardarusuario(varnom.get(),varcorr.get(),varcontra.get())
 #ventana  inicial
 
 ventana= Tk ()
