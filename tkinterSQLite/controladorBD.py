@@ -6,7 +6,7 @@ class controladorBD:
         pass
     def conexionBD(self):
         try:
-            conexion=sqlite3.connect("C:/Users/ALAN777/Documents/GitHub/POOS181.1/POO2PARCIAL/tkinterSQLite/DBusuarios.db")
+            conexion=sqlite3.connect("C:\Users\ALAN777\Documents\GitHub\POOS181.1\POO2PARCIAL\tkinterSQLite\DBusuarios.db")
             print("conexion ala BD")
             return conexion
         except sqlite3.OperationalError:
@@ -21,7 +21,7 @@ class controladorBD:
             
             
             #3.preparamos cursor,datos,querySQL
-            cursor=conx.cursor()
+            cursor= conx.cursor()
             conH=self.encriptarCon(contra)
             
             datos=(nom,corr,conH)
@@ -39,8 +39,3 @@ class controladorBD:
         conHa= bcrypt.hashpw(conPlana,sal)
         print(conHa)
         return conHa
-    
-            
-        
-        
-  

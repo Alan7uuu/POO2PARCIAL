@@ -1,13 +1,14 @@
 from tkinter import*
 from tkinter import ttk
 import tkinter as tk
-from controladorBD import* #1 presentamos los archivos
+from controladorBD import* 
+#1 presentamos los archivos
 #2 crear un objeto de la clase controlador 
 controlador=controladorBD()
 
 #3.funcion para disparar el boton
 def ejecutainsert():
-    controlador.guardarusuario(varnom.get(),varcorr.get(),varcontra.get())
+    controlador.guardarusuario(varnom.get(), varcorr.get(), varcontra.get())
 #ventana  inicial
 
 ventana= Tk ()
