@@ -8,6 +8,7 @@ class controladorBD:
         try:
             conexion=sqlite3.connect("C:/Users/ALAN777/Documents/GitHub/POOS181.1/POO2PARCIAL/tkinterSQLite/DBusuarios.db")
             print("conexion ala BD")
+            return conexion
         except sqlite3.OperationalError:
             print("no se pudo conectar ala BD")
     def guardarusuario(self,nom,corr,contra):
