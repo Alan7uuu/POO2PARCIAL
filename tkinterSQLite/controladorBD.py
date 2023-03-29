@@ -34,7 +34,8 @@ class controladorBD:
             messagebox.showinfo("exito","usuario guardado")
     def encriptarCon(self,contra):
         conPlana= contra
-        conPlana=conPlana.encode()  #convertimos con a bytes
+        conPlana=conPlana.encode()
+        #convertimos con a bytes
         sal=bcrypt.gensalt()
         conHa= bcrypt.hashpw(conPlana,sal)
         print(conHa)
