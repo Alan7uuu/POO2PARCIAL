@@ -18,6 +18,7 @@ def ejecutaselectu():
         print(cadena)
     else:
         messagebox.showinfo("usuario no encontrado","usuario no existe en la BD")
+    textenc.insert(tk.INSERT,cadena)
 #ventana  inicial
 
 ventana= Tk ()
@@ -50,7 +51,8 @@ idlib=Label(pestaña2,text="Identificador de usuario",fg='red',font=("modern",14
 txtbus=Entry(pestaña2,textvariable=varbus).pack()
 botonbus=Button(pestaña2,text="Buscar",command=ejecutaselectu).pack()
 subbus=Label(pestaña2,text="Encontrado:", fg='blue',font=("modern",15)).pack()
-textenc=tk.Text(pestaña2,height=5,width=52).pack()
+textenc=tk.Text(pestaña2,height=5,width=52)
+textenc.pack()
 
 
 ventana2.add(pestaña1,text='Registro de Datos')
