@@ -6,7 +6,7 @@ class controladorBD:
         pass
     def conexionBD(self):
         try:
-            conexion=sqlite3.connect("C:\Users\ALAN777\Documents\GitHub\POOS181.1\POO2PARCIAL\tkinterSQLite\DBusuarios.db")
+            conexion=sqlite3.connect("C:/Users/ALAN777/Documents/GitHub/POOS181.1/POO2PARCIAL/tkinterSQLite/DBusuarios.db")
             print("conexion ala BD")
             return conexion
         except sqlite3.OperationalError:
@@ -40,3 +40,24 @@ class controladorBD:
         conHa= bcrypt.hashpw(conPlana,sal)
         print(conHa)
         return conHa
+    #metodo buscar un usuario
+    def consultarusuario(self,id):
+        #1.Preparar una conexion
+        conx=self.conexionBD()
+        #2.verificar si el parametro ID contiene algo
+        if(id == ""):
+            messagebox.showwarning("Cuidado","El ID es invalido o esta vacio")
+            conx.close()
+        else:
+            try:
+                #3.preparar cursor y el query
+                cursor=conx.cursor()
+                selectQry="select * from TBRegistrados where id="+id
+                #4.ejecutar y guardar la consulta
+                cursor.execute(selectQry)
+                rsUsuario=cursor.fetchall()
+                conx.close()
+                return rsUsuario
+            except sqlite3.OperationalError:
+                print("Error de consulta")
+        
