@@ -69,7 +69,9 @@ class controladorBD:
         conx=self.conexionBD()
         # se genera un cursor
         cursor=conx.cursor()
+       
         # se prepera el Query
+        
         selectQry="select nombre,correo,contra from TBRegistrados"
         # se ejecutara la consulta realizada
         cursor.execute(selectQry)
@@ -81,6 +83,12 @@ class controladorBD:
             registros.append(list(row))
         # se beden regresar los datos de la lista para asi poder asiganarles una funcion dentro del boton para actualizarr los datos
         return registros
+    def actualizar(self,nombre,correo,contra):
+        conx=self.conexionBD()
+        cursor=conx.cursor()
+        cursor.execute("UPDATE loll SET nombre='" + nombre + "', correo='" + correo + "'contra='" + contra )
+        conx.commit()
+        messagebox.showinfo("Registro", "registro actualizado")
         
         
            

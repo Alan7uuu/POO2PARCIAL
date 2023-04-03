@@ -21,6 +21,9 @@ def ejecutaselectu():
     textenc.insert(tk.INSERT,cadena)
 def tabla():
     return controlador.imprimir()
+
+
+
 #ventana  inicial
 
 ventana= Tk ()
@@ -57,17 +60,19 @@ textenc=tk.Text(pestaña2,height=5,width=52)
 textenc.pack()
 #Pestaña 3
 titulo=Label(pestaña3,text="Consulta de Usuarios",fg='blue',font=("modern",18)).pack()
-Botoncons=Button(pestaña3,text="Actualizar Datos").pack()
+Botoncons=Button(pestaña3,text="Actualizar Datos", command=actualizacion).pack()
 #se generara el formato de la tabla con las columnas correspondientes
-col=('Nombre', 'Correo','Contraseña')
-a=ttk.Treeview(pestaña3, col=col,show='headings')
-a.heading('Nombre', text='Nombre')
-a.heading('Correo', text='Correo')
-a.heading('Contraseña', text='Contraseña')
+a=ttk.Treeview(pestaña3,height=10, col=('Nombre', 'Correo','Contraseña'))
+a.heading('#0', text='Nombre',anchor=CENTER)
+a.heading('#1', text='Correo',anchor=CENTER)
+a.heading('#2', text='Contraseña',anchor=CENTER)
 a.pack(padx=5, pady=5)
 registros=tabla()
 for b, row in enumerate(registros):
     a.insert('', 'end' , text=str(b+1), values =row)
+    # se usa un if para en caso de estar vacia arroje un mensaje de que la base esta vacia.
+    if registros==[]:
+        messagebox.showinfo("Error","La Base de Datos esta vacia.")
 
 #AÑADIR VENTAna
 ventana2.add(pestaña1,text='Registro de Datos')
