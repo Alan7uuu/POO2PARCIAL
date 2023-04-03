@@ -1,6 +1,8 @@
 from tkinter import messagebox
 import sqlite3
 import bcrypt
+from tkinter import ttk
+import tkinter as tk
 class controladorBD:
     def __init__(self):
         pass
@@ -60,4 +62,27 @@ class controladorBD:
                 return rsUsuario
             except sqlite3.OperationalError:
                 print("Error de consulta")
+    #Prectica 17 se realizara una funcion la cual al ejecutar el programa mostrara dentro de una tabla los registros dentro de la BD
+                
+    def imprimir(self):
+        # se accede primero ala conexion generada anteriormente reutilizando dicha funcion
+        conx=self.conexionBD()
+        # se genera un cursor
+        cursor=conx.cursor()
+        # se prepera el Query
+        selectQry="select nombre,correo,contra from TBRegistrados"
+        # se ejecutara la consulta realizada
+        cursor.execute(selectQry)
+        resultado=cursor.fetchall()
+        conx.close()
+        # dichos datos se tomaran y almacenaran en una lista para mandarlos llamar cuando se desee
+        registros=[]
+        for row in resultado:
+            registros.append(list(row))
+        # se beden regresar los datos de la lista para asi poder asiganarles una funcion dentro del boton para actualizarr los datos
+        return registros
+        
+        
+           
+
         

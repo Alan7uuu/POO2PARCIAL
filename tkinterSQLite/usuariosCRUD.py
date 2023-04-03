@@ -15,15 +15,17 @@ def ejecutaselectu():
     for usu in usuario:
         cadena=str(usu[0])+" "+ usu[1]+" "+ usu[2]+" "+ str(usu[3])
     if(usuario):
-        print(cadena)
+       print(cadena)
     else:
         messagebox.showinfo("usuario no encontrado","usuario no existe en la BD")
     textenc.insert(tk.INSERT,cadena)
+def tabla():
+    return controlador.imprimir()
 #ventana  inicial
 
 ventana= Tk ()
 ventana.title("CRUD USUARIOS")
-ventana.geometry("500x400")
+ventana.geometry("700x500")
 #ventana dentro de la ventana
 ventana2=ttk.Notebook(ventana)
 ventana2.pack(fill='both', expand='yes')
@@ -53,8 +55,21 @@ botonbus=Button(pestaña2,text="Buscar",command=ejecutaselectu).pack()
 subbus=Label(pestaña2,text="Encontrado:", fg='blue',font=("modern",15)).pack()
 textenc=tk.Text(pestaña2,height=5,width=52)
 textenc.pack()
+#Pestaña 3
+titulo=Label(pestaña3,text="Consulta de Usuarios",fg='blue',font=("modern",18)).pack()
+Botoncons=Button(pestaña3,text="Actualizar Datos").pack()
+#se generara el formato de la tabla con las columnas correspondientes
+col=('Nombre', 'Correo','Contraseña')
+a=ttk.Treeview(pestaña3, col=col,show='headings')
+a.heading('Nombre', text='Nombre')
+a.heading('Correo', text='Correo')
+a.heading('Contraseña', text='Contraseña')
+a.pack(padx=5, pady=5)
+registros=tabla()
+for b, row in enumerate(registros):
+    a.insert('', 'end' , text=str(b+1), values =row)
 
-
+#AÑADIR VENTAna
 ventana2.add(pestaña1,text='Registro de Datos')
 ventana2.add(pestaña2,text='Buscar Usuario')
 ventana2.add(pestaña3,text='Consultar Usuario')
