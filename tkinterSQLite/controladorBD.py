@@ -65,7 +65,7 @@ class controladorBD:
     #Prectica 17 se realizara una funcion la cual al ejecutar el programa mostrara dentro de una tabla los registros dentro de la BD
                 
     def imprimir(self):
-        # se accede primero ala conexion generada anteriormente reutilizando dicha funcion
+         # se accede primero ala conexion generada anteriormente reutilizando dicha funcion
         conx=self.conexionBD()
         # se genera un cursor
         cursor=conx.cursor()
@@ -85,6 +85,18 @@ class controladorBD:
         # se beden regresar los datos de la lista para asi poder asiganarles una funcion dentro del boton para actualizarr los datos
     
         return registros
+    def eliminar_registro(self,id):
+        conx=self.conexionBD()
+        cursor=conx.cursor()
+        cursor.execute("DELETE FROM TBRegistrados WHERE id=?", (id,))
+        messagebox.showinfo("Exito","Se a borrado registro en base de datos")
+        conx.commit()
+        conx.close()
+        
+        # dichos datos se tomaran y almacenaran en una lista para mandarlos llamar cuando se desee
+    
+        
+        
    
 
         

@@ -34,6 +34,8 @@ def actualizar_tabla():
 def nuevo() :
     prueba1=threading.Thread(target=actualizar_tabla)
     prueba1.start()
+def eli():
+    controlador.eliminar_registro(eliminarid.get())
 
 #ventana  inicial
 
@@ -48,6 +50,8 @@ pestaña1=ttk.Frame(ventana2)
 pestaña2=ttk.Frame(ventana2)
 pestaña3=ttk.Frame(ventana2)
 pestaña4=ttk.Frame(ventana2)
+pestaña5=ttk.Frame(ventana2)
+
 #pestaña1 formulario usuarios
 titulo=Label(pestaña1,text="Registro de usuarios",fg='blue',font=("modern",18)).pack()
 varnom=tk.StringVar()
@@ -100,6 +104,12 @@ titulo=Label(pestaña4,text="Ingrese nueva contraseña",fg='red',font=("modern",
 nuevacontra=tk.StringVar()
 nuevacontra2=Entry(pestaña4,textvariable=nuevacontra).pack()
 botoncambiar=Button(pestaña4,text="Realizar cambios").pack()
+#PESTAÑA 5 ELIMINAR
+titulo=Label(pestaña5,text="Eliminar datos del usuario",fg='blue',font=("modern",22)).pack()
+titulo=Label(pestaña5,text="Ingrese ID que desee eliminar",fg='red',font=("modern",18)).pack()
+eliminarid=tk.StringVar()
+eliminarid2=Entry(pestaña5,textvariable=eliminarid).pack()
+botoneliminar=Button(pestaña5,text="Eliminar",command=eli).pack()
 
 
 #AÑADIR VENTAna
@@ -107,6 +117,7 @@ ventana2.add(pestaña1,text='Registro de Datos')
 ventana2.add(pestaña2,text='Buscar Usuario')
 ventana2.add(pestaña3,text='Consultar Usuario')
 ventana2.add(pestaña4,text='Actualizar Usuario')
+ventana2.add(pestaña5,text='Eliminar usuario')
 
 #ejecutor de ventana
 ventana.mainloop()
