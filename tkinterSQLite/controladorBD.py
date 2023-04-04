@@ -72,7 +72,7 @@ class controladorBD:
        
         # se prepera el Query
         
-        selectQry="select nombre,correo,contra from TBRegistrados"
+        selectQry="select id,nombre,correo,contra from TBRegistrados"
         # se ejecutara la consulta realizada
         cursor.execute(selectQry)
         resultado=cursor.fetchall()
