@@ -78,7 +78,7 @@ titulo=Label(pestaña3,text="Consulta de Usuarios",fg='blue',font=("modern",18))
 Botoncons=Button(pestaña3,text="Actualizar Tabla", command=nuevo).pack()
 #se generara el formato de la tabla con las columnas correspondientes
 a=ttk.Treeview(pestaña3,height=50, col=('id','Nombre', 'Correo','Contraseña'))
-a.heading('#0', text='Noº',anchor=CENTER)
+a.heading('#0', text='Noº en la lista', anchor=CENTER)
 a.heading('#1', text='ID',anchor=CENTER)
 a.heading('#2', text='Nombre',anchor=CENTER)
 a.heading('#3', text='Correo',anchor=CENTER)
