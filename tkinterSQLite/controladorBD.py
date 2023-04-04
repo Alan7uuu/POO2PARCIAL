@@ -76,21 +76,17 @@ class controladorBD:
         # se ejecutara la consulta realizada
         cursor.execute(selectQry)
         resultado=cursor.fetchall()
+        #se cierra la conexion
         conx.close()
         # dichos datos se tomaran y almacenaran en una lista para mandarlos llamar cuando se desee
         registros=[]
         for row in resultado:
             registros.append(list(row))
         # se beden regresar los datos de la lista para asi poder asiganarles una funcion dentro del boton para actualizarr los datos
+    
         return registros
-    def actualizar(self,nombre,correo,contra):
-        conx=self.conexionBD()
-        cursor=conx.cursor()
-        cursor.execute("UPDATE loll SET nombre='" + nombre + "', correo='" + correo + "'contra='" + contra )
-        conx.commit()
-        messagebox.showinfo("Registro", "registro actualizado")
-        
+   
+
         
            
 
-        

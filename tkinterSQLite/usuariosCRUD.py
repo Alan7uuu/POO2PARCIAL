@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 import tkinter as tk
+import threading
 from controladorBD import* 
 #1 presentamos los archivos
 #2 crear un objeto de la clase controlador 
@@ -19,10 +20,20 @@ def ejecutaselectu():
     else:
         messagebox.showinfo("usuario no encontrado","usuario no existe en la BD")
     textenc.insert(tk.INSERT,cadena)
+    
 def tabla():
     return controlador.imprimir()
-
-
+def actualizar_tabla():
+    for uno in a.get_children():
+            a.delete(uno)
+    registros=tabla()
+    for b, row in enumerate(registros):
+            a.insert("", "end", text=str(b+1), values=row)
+    if registros==[]:
+        messagebox.showinfo("Error","La Base de Datos esta vacia.")
+def nuevo() :
+    prueba1=threading.Thread(target=actualizar_tabla)
+    prueba1.start()
 
 #ventana  inicial
 
@@ -60,19 +71,36 @@ textenc=tk.Text(pestaña2,height=5,width=52)
 textenc.pack()
 #Pestaña 3
 titulo=Label(pestaña3,text="Consulta de Usuarios",fg='blue',font=("modern",18)).pack()
-Botoncons=Button(pestaña3,text="Actualizar Datos", command=actualizacion).pack()
+Botoncons=Button(pestaña3,text="Actualizar Tabla", command=nuevo).pack()
 #se generara el formato de la tabla con las columnas correspondientes
-a=ttk.Treeview(pestaña3,height=10, col=('Nombre', 'Correo','Contraseña'))
-a.heading('#0', text='Nombre',anchor=CENTER)
-a.heading('#1', text='Correo',anchor=CENTER)
-a.heading('#2', text='Contraseña',anchor=CENTER)
-a.pack(padx=5, pady=5)
+a=ttk.Treeview(pestaña3,height=50, col=('id','Nombre', 'Correo','Contraseña'))
+a.heading('#0', text='ID',anchor=CENTER)
+a.heading('#1', text='Nombre',anchor=CENTER)
+a.heading('#2', text='Correo',anchor=CENTER)
+a.heading('#3', text='Contraseña',anchor=CENTER)
+a.pack(padx=3, pady=3)
 registros=tabla()
 for b, row in enumerate(registros):
     a.insert('', 'end' , text=str(b+1), values =row)
     # se usa un if para en caso de estar vacia arroje un mensaje de que la base esta vacia.
     if registros==[]:
         messagebox.showinfo("Error","La Base de Datos esta vacia.")
+# pestaña 4
+titulo=Label(pestaña4,text="Actualizar datos del usuario",fg='blue',font=("modern",22)).pack()
+titulo=Label(pestaña4,text="Ingrese ID que desee cambiar",fg='red',font=("modern",18)).pack()
+nuevoid=tk.StringVar()
+nuevoid2=Entry(pestaña4,textvariable=nuevoid).pack()
+titulo=Label(pestaña4,text="Ingrese nuevo Nombre",fg='red',font=("modern",18)).pack()
+nuevonom=tk.StringVar()
+nuevonom2=Entry(pestaña4,textvariable=nuevonom).pack()
+titulo=Label(pestaña4,text="Ingrese Nuevo Correo",fg='red',font=("modern",18)).pack()
+nuevocorr=tk.StringVar()
+nuevocorr2=Entry(pestaña4,textvariable=nuevocorr).pack()
+titulo=Label(pestaña4,text="Ingrese nueva contraseña",fg='red',font=("modern",18)).pack()
+nuevacontra=tk.StringVar()
+nuevacontra2=Entry(pestaña4,textvariable=nuevacontra).pack()
+botoncambiar=Button(pestaña4,text="Realizar cambios").pack()
+
 
 #AÑADIR VENTAna
 ventana2.add(pestaña1,text='Registro de Datos')
