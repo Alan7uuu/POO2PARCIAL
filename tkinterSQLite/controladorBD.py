@@ -65,14 +65,14 @@ class controladorBD:
     #Prectica 17 se realizara una funcion la cual al ejecutar el programa mostrara dentro de una tabla los registros dentro de la BD
                 
     def imprimir(self):
-         # se accede primero ala conexion generada anteriormente reutilizando dicha funcion
+       # se accede primero ala conexion generada anteriormente reutilizando dicha funcion
         conx=self.conexionBD()
         # se genera un cursor
         cursor=conx.cursor()
        
         # se prepera el Query
         
-        selectQry="select nombre,correo,contra from TBRegistrados"
+        selectQry="select id,nombre,correo,contra from TBRegistrados"
         # se ejecutara la consulta realizada
         cursor.execute(selectQry)
         resultado=cursor.fetchall()
@@ -82,9 +82,11 @@ class controladorBD:
         registros=[]
         for row in resultado:
             registros.append(list(row))
+            
         # se beden regresar los datos de la lista para asi poder asiganarles una funcion dentro del boton para actualizarr los datos
-    
-        return registros
+       
+        return registros   
+        
     def eliminar_registro(self,id):
         conx=self.conexionBD()
         cursor=conx.cursor()
@@ -92,24 +94,29 @@ class controladorBD:
         messagebox.askyesno("Alerta","Desea borrar registro de la bd")
         conx.commit()
         conx.close()
+        
     def modificar(self,id,nombre,correo,contraseña):
         if(id == ""):
             messagebox.showwarning("Cuidado","El ID no se encuentra en la base de datos")
-            conx.close()
+       
         else:
             try:
+        
                 nom=nombre
                 cor=correo
                 contra=contraseña
+            
                 conx=self.conexionBD()
                 cursor=conx.cursor()
-                cursor.execute("UPDATE TBRegistrados SET nombre=?, correo=?, contra=? ", (nom, cor, contra))
+                cursor.execute("UPDATE TBRegistrados SET nombre=?, correo=?, contra=? WHERE id=?", (nom, cor, contra,id))
                 messagebox.showinfo("Realizado","Se a realizado la actualizacion de datos")
                 conx.commit()
                 conx.close()
-            
             except sqlite3.OperationalError:
                 messagebox.showerror("Error","no se pudieron realizar los cambios")
+        
+
+    
         
         
         
