@@ -92,6 +92,26 @@ class controladorBD:
         messagebox.showinfo("Exito","Se a borrado registro en base de datos")
         conx.commit()
         conx.close()
+    def modificar(self,id,nombre,correo,contraseña):
+        if(id == ""):
+            messagebox.showwarning("Cuidado","El ID no se encuentra en la base de datos")
+            conx.close()
+        else:
+            try:
+                nom=nombre
+                cor=correo
+                contra=contraseña
+                conx=self.conexionBD()
+                cursor=conx.cursor()
+                cursor.execute("UPDATE TBRegistrados SET nombre=?, correo=?, contra=? ", (nom, cor, contra))
+                messagebox.showinfo("Realizado","Se a realizado la actualizacion de datos")
+                conx.commit()
+                conx.close()
+            
+            except sqlite3.OperationalError:
+                messagebox.showerror("Error","no se pudieron realizar los cambios")
+        
+        
         
         # dichos datos se tomaran y almacenaran en una lista para mandarlos llamar cuando se desee
     

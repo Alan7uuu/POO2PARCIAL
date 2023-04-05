@@ -36,6 +36,8 @@ def nuevo() :
     prueba1.start()
 def eli():
     controlador.eliminar_registro(eliminarid.get())
+def actu():
+    controlador.modificar(nuevoid.get(),nuevonom.get(),nuevocorr.get(),nuevacontra.get())
 
 #ventana  inicial
 
@@ -103,7 +105,7 @@ nuevocorr2=Entry(pestaña4,textvariable=nuevocorr).pack()
 titulo=Label(pestaña4,text="Ingrese nueva contraseña",fg='red',font=("modern",18)).pack()
 nuevacontra=tk.StringVar()
 nuevacontra2=Entry(pestaña4,textvariable=nuevacontra).pack()
-botoncambiar=Button(pestaña4,text="Realizar cambios").pack()
+botoncambiar=Button(pestaña4,text="Realizar cambios",command=actu).pack()
 #PESTAÑA 5 ELIMINAR
 titulo=Label(pestaña5,text="Eliminar datos del usuario",fg='blue',font=("modern",22)).pack()
 titulo=Label(pestaña5,text="Ingrese ID que desee eliminar",fg='red',font=("modern",18)).pack()
