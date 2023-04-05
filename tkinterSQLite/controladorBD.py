@@ -89,7 +89,7 @@ class controladorBD:
         conx=self.conexionBD()
         cursor=conx.cursor()
         cursor.execute("DELETE FROM TBRegistrados WHERE id=?", (id,))
-        messagebox.showinfo("Exito","Se a borrado registro en base de datos")
+        messagebox.askyesno("Alerta","Desea borrar registro de la bd")
         conx.commit()
         conx.close()
     def modificar(self,id,nombre,correo,contraseña):
