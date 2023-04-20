@@ -1,25 +1,19 @@
-import random
-from tkinter import Tk
+import tkinter as tk
 
+# Crear ventana y widget Entry
+ventana = tk.Tk()
+entry_resultado = tk.Entry(ventana)
 
-def consulta():
-    for _ in range(random.randint(1, 13)):
-        yield random.choices(range(1, 200), k=2)
+# Definir la función
+def mi_funcion():
+    # Realizar cálculos y devolver el resultado
+    resultado = "hola mundo"
+    return resultado
 
+# Obtener el resultado de la función y mostrarlo en el widget Entry
+resultado = mi_funcion()
+entry_resultado.insert(0, str(resultado))
 
-def nueva_consulta():
-    cursor = consulta()
-    clientes_tab.clear()
-    for row in cursor:
-        clientes_tab.add_row(row)
-
-
-t3 = tk.Tk()
-clientes_headers = ["foo", "bar"]
-clientes_tab = Table(
-    t3, title="ENTRADAS DE MERCADERIAS", headers=clientes_headers
-    )
-clientes_tab.pack()
-tk.Button(t3, text="Nueva consulta", command=nueva_consulta).pack()
-
-t3.mainloop()
+# Mostrar la ventana
+entry_resultado.pack()
+ventana.mainloop()

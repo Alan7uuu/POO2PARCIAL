@@ -22,11 +22,15 @@ unoe=StringVar()
 unoee=Entry(ventana,textvariable=unoe).pack()
 #funciones
 axc=logica()
-def guardado():
-    axc.guardar(unoa.get(),unob.get(),unoc.get(),unod.get(),unoe.get())
+def generar():
+    axc.clave(unoa.get(),unob.get(),unoc.get(),unod.get(),unoe.get())
+    
+
+    
+    
 
 #Botones
-BotonGuardar=Button(ventana,text="Generar",bg="black", fg="white", command=guardado).pack()
+BotonGuardar=Button(ventana,text="Generar",bg="black", fg="white",command=generar).pack()
 
 
 

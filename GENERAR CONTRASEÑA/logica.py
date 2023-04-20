@@ -1,28 +1,37 @@
 import random 
 from tkinter import messagebox
-class logica():
+class logica:
+    
+    lista=[]
+    
     def __init__(self):
-        self.__mayusculas="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        self.__minusculas="abcdefghijklmnopqrstuvwxyz"
-        self.__numerico="0123456789"
-        self.__especial="!@#$%^&*()_+-={}|[]\\:\";'<>?,./"
-    def generarcontraseña(self, tamaño,opciones):
-        tamaño2=int(tamaño)
-        opciones2=str(opciones)
-        if (opciones2) ==str("1"):
-            contra=[random.choice(self.__mayusculas) for i in range(tamaño2)]
-            messagebox.askokcancel("contraseña", f'"su contraseña es:"{contra}"')
-        elif opciones2==str(2):
-            contra=[random.choice(self.__minusculas) for i in range(tamaño2)]
-            messagebox.askokcancel("contraseña", f'"su contraseña es:"{contra}"')
-        elif opciones2==str(3):
-            contra=[random.choice(self.__numerico) for i in range(tamaño2)]
-            messagebox.askokcancel("contraseña", f'"su contraseña es:"{contra}"')
-        elif opciones2==str(4):
-            contra=[random.choice(self.__especial) for i in range(tamaño2)]
-            messagebox.askokcancel("contraseña", f'"su contraseña es:"{contra}"')
-        elif opciones2==str(5):
-            contra=[random.choices(self.__mayusculas+self.__especial+self.__minusculas+self.__numerico) for i in range(tamaño2)]
-            messagebox.askokcancel("contraseña", f'"su contraseña es:"{contra}"')
         
+        self.__caracteres="abcdefghijklmnñopqrstuvwxyz"
+        self.__numeros="1234567890"
+        self.__especiales="@!#$%&/=?¡¿'¿´+*-|°¬"
+        self.__mayusculas="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+    
+    def generar (self,tam,mayus,espec):
+        a=int(tam)
+        c=str(espec)
+        d=str(mayus)
         
+        if (c == "si"):
+            b = [random.choices(self.__especiales +self.__caracteres+self.__numeros) for i in range(a)]
+            messagebox.askokcancel("contraseña",f'la contraseña es"{b}"')
+            
+        elif (d == "si"):
+            b = [random.choices(self.__mayusculas+self.__numeros+self.__caracteres) for i in range(a)]
+            messagebox.askokcancel("contraseña",f'la contraseña es"{b}"')
+            
+        elif (d == "si" and  c== "si"):
+            b = [random.choices(self.__mayusculas+self.__numeros+self.__caracteres+self.__especiales) for i in range(a)]
+            messagebox.askokcancel("contraseña",f'la contraseña es"{b}"')
+          
+            
+        else:
+            b = [random.choice(self.__caracteres) for i in range(a)]
+            f=print( messagebox.askokcancel("contraseña",f'la contraseña es"{b}"'))
+            if f == True:
+                print("si")
+        return b
