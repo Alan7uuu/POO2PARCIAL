@@ -3,7 +3,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import sqlite3
 
-
+#CLASE
 class logicap:
     
     def __init__(self) -> None:

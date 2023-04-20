@@ -12,7 +12,7 @@ def eliminar():
 """def consultacion():
     x.consultar(paa.get())"""
 
-
+#VENTANA
 
 note= ttk.Notebook(ventana)
 note.pack()
