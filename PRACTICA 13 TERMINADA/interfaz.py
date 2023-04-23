@@ -3,8 +3,8 @@ from logica import *
 import tkinter as tk
 x=logica()
 def generar():
-    a=x.generar(tamaño.get(),mayusculas.get(),especiales.get())
-    return a
+    alan=x.generar(tamaño.get(),mayusculas.get(),especiales.get())
+    
 ventana= Tk ()
 ventana.title("GENERADOR DE CONTRASEÑAS")
 ventana.geometry("300x400")
@@ -20,6 +20,10 @@ tam=Label(ventana, text="Contendra mayusculas:").pack()
 mayusculas=StringVar()
 mayusculas2=Entry(ventana,textvariable=mayusculas).pack()
 tam=Label(ventana, text="Su contraseña es:").pack()
+contraseña1=tk.StringVar
+contraseña = tk.Entry(ventana ,width=30,textvariable=contraseña1)
+contraseña.configure(text=generar)
+contraseña.pack()
 botonuno=Button(ventana, text="GENERAR CONTRASEÑA", bg="pink",command=generar).pack()
 
 ventana.mainloop()

@@ -1,8 +1,8 @@
 from tkinter import messagebox
 class Logica:
     def __init__(self):
-        self.__correo="alan"
-        self.__contra="1234"
+        self.__correo="alan@gmail.com"
+        self.__contra="a1b2c3d4"
     def iniciarsesion(self,correo,contra):
         if (correo == ""):
             messagebox.showerror("Error","Flto llenar el Correo Electronico")

@@ -52,12 +52,15 @@ class logicap:
                 conx.close()
             else: 
                 pass
-    """def consultar(self,pais):
-        conx=self.conexionBD()
-        cursor=conx.cursor()
-        selectQry="select * from TB_Europa where Pais="+pais
-        cursor.execute(selectQry)
-        rsUsuario=cursor.fetchall()
-        messagebox.showinfo("Tu consulta es",f'los datos dentro son es"{selectQry}"')
-        conx.close()
-        return rsUsuario"""
+    def consultar(self,pais):
+        if pais =="":
+          messagebox.showerror("Cuidado","Ingrese el campo solicitado")
+        try:
+            conx=self.conexionBD()
+            cursor=conx.cursor()
+            cursor.execute("select IDImpo,Mercancia  from TB_Europa where Pais=?",(pais,))
+            usuario=cursor.fetchall()
+            conx.close()
+            return usuario
+        except:
+            messagebox.showerror("Error","Cuidado pais no esta en la BD")

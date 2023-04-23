@@ -7,6 +7,7 @@ def inicio():
 ventana= Tk ()
 ventana.title("GENERADOR DE CONTRASEÑAS")
 ventana.geometry("300x400")
+ventana.configure(bg='#00FA9A')
 Titulo=Label(ventana,text="Ingrese Datos Solicitados").pack()
 Titulo=Label(ventana,text="Ingrese Correo Electronico").pack()
 corr=StringVar()

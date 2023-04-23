@@ -1,5 +1,6 @@
 import random 
 from tkinter import messagebox
+import tkinter as tk
 class logica:
     
     lista=[]
@@ -34,4 +35,5 @@ class logica:
             f=print( messagebox.askokcancel("contraseña",f'la contraseña es"{b}"'))
             if f == True:
                 print("si")
-        return b
+        
+       

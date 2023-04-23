@@ -84,7 +84,7 @@ def buscador():
 
 ventana = Tk()
 ventana.title("base de datos Frames")
-ventana.geometry("600x400")
+ventana.geometry("1000x1000")
 
 note= ttk.Notebook(ventana)
 note.pack()
@@ -97,6 +97,7 @@ note.pack()
     
 clientes = Frame(note,width=400,height=400)
 clientes.pack(expand=True,fill='both')
+clientes.configure(bg='#00BFBF')
 note.add(clientes,text="R. Clientes")
 texto=Label(clientes,text="registro de clientes")
 
@@ -131,6 +132,7 @@ boton.place(x=150, y=140)
     
 empleados = Frame(note,width=400,height=400)
 empleados.pack(expand=True,fill='both')
+empleados.configure(bg='#00BFBF')
 note.add(empleados,text="R. Empleados")
 texto=Label(empleados,text="registro de empleados")
 
@@ -161,6 +163,7 @@ boton.place(x=150, y=140)
 
 provedores= Frame(note,width=400,height=280)
 provedores.pack(expand=True,fill='both')
+provedores.configure(bg='#00BFBF')
 note.add(provedores,text="R. Provedores")
 texto=Label(provedores,text="registrar provedores")
 
@@ -188,6 +191,7 @@ boton.place(x=150, y=140)
 # consultar clientes
 cclientes= Frame(note,width=400,height=280)
 cclientes.pack(expand=True,fill='both')
+cclientes.configure(bg='#BFBF00')
 note.add(cclientes,text="Consultas")
 texto=Label(cclientes,text="Consulta de clientes").pack()
 botonconsultar=Button(cclientes,text="Consultar",command=nuevo).pack()
@@ -240,6 +244,7 @@ for h, row in enumerate(datos2):
 
 eliminar= Frame(note,width=400,height=280)
 eliminar.pack(expand=True,fill='both')
+eliminar.configure(bg='#FFE4C4')
 note.add(eliminar,text="Eliminar Registro")
 texto=Label(eliminar,text="Ingrese Area a eliminar").pack()
 areaaa=StringVar()
@@ -252,6 +257,7 @@ botoneliminar=Button(eliminar,text="Eliminar",command=eliminacion).pack()
 #actualizar datos 
 actualizar= Frame(note,width=400,height=280)
 actualizar.pack(expand=True,fill='both')
+actualizar.configure(bg='#D3D3D3')
 note.add(actualizar,text="Actualizar Clientes")
 titulo=Label(actualizar,text="Actualizar datos del Cliente",fg="red").pack()
 titulo=Label(actualizar,text="Ingrese ID que desee Actualizar").pack()
@@ -270,6 +276,7 @@ botonact=Button(actualizar,text="Actualizar",command=actual).pack()
 #actualizar datos empleado
 actualizar2= Frame(note,width=400,height=280)
 actualizar2.pack(expand=True,fill='both')
+actualizar2.configure(bg='#D3D3D3')
 note.add(actualizar2,text="Actualizar Empleados")
 titulo=Label(actualizar2,text="Actualizar datos del Empleado",fg="red").pack()
 titulo=Label(actualizar2,text="Ingrese ID que desee Actualizar").pack()
@@ -288,6 +295,7 @@ botonactu=Button(actualizar2,text="Actualizar",command=actuali).pack()
 #actualizar datos del provedor
 actualizar3= Frame(note,width=400,height=280)
 actualizar3.pack(expand=True,fill='both')
+actualizar3.configure(bg='#D3D3D3')
 note.add(actualizar3,text="Actualizar Empleados")
 titulo=Label(actualizar3,text="Actualizar datos del Provedor",fg="red").pack()
 titulo=Label(actualizar3,text="Ingrese ID que desee Actualizar").pack()
@@ -306,6 +314,7 @@ botonact=Button(actualizar3,text="Actualizar",command=actualiz).pack()
 #buscar empleados
 buscar= Frame(note,width=400,height=280)
 buscar.pack(expand=True,fill='both')
+buscar.configure(bg='#00FA9A')
 note.add(buscar,text="Buscar Empleado")
 titulo=Label(buscar,text="Ingrese los Datos").pack()
 titulo=Label(buscar,text="Ingrese Area a buscar").pack()

@@ -1,19 +1,22 @@
 import tkinter as tk
 
-# Crear ventana y widget Entry
-ventana = tk.Tk()
-entry_resultado = tk.Entry(ventana)
+class Aplicacion:
+    def __init__(self):
+        self.ventana1=tk.Tk()
+        self.label1=tk.Label(self.ventana1,text="Ingrese un número:")
+        self.label1.grid(column=0, row=0)
+        self.dato=tk.StringVar()
+        self.entry1=tk.Entry(self.ventana1, width=10, textvariable=self.dato)
+        self.entry1.grid(column=0, row=1)
+        self.boton1=tk.Button(self.ventana1, text="Calcular Cuadrado", command=self.calcularcuadrado)
+        self.boton1.grid(column=0, row=2)
+        self.label2=tk.Label(self.ventana1,text="resultado")
+        self.label2.grid(column=0, row=3)
+        self.ventana1.mainloop()
 
-# Definir la función
-def mi_funcion():
-    # Realizar cálculos y devolver el resultado
-    resultado = "hola mundo"
-    return resultado
+    def calcularcuadrado(self):
+        valor=int(self.dato.get())
+        cuadrado=valor*valor
+        self.label2.configure(text=cuadrado)
 
-# Obtener el resultado de la función y mostrarlo en el widget Entry
-resultado = mi_funcion()
-entry_resultado.insert(0, str(resultado))
-
-# Mostrar la ventana
-entry_resultado.pack()
-ventana.mainloop()
+aplicacion1=Aplicacion()    

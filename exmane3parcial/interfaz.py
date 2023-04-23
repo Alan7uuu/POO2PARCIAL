@@ -9,8 +9,16 @@ def registrar():
     x.guardarregistro(merca1.get(),pais.get())
 def eliminar():
     x.eliminar_registro(id.get())
-"""def consultacion():
-    x.consultar(paa.get())"""
+def consultacion():
+    usuario= x.consultar(paa.get())
+    for usu in usuario:
+        cadena="IDImpo: "+str(usu[0])+" ,"+"Mercancia: "+ str( usu[1])
+    if(usuario):
+        messagebox.showinfo("Consulta",f'Los datos encontrados son"{cadena}"')
+    else:
+        messagebox.showinfo("usuario no encontrado","usuario no existe en la BD")
+  
+    
 
 #VENTANA
 
@@ -36,12 +44,12 @@ id=StringVar()
 id2=Entry(eliminar2,textvariable=id).pack()
 BotonEli=Button(eliminar2,text="Eliminar",command=eliminar).pack()
 
-"""consultar = Frame(note,width=400,height=400)
+consultar = Frame(note,width=400,height=400)
 consultar.pack(expand=True,fill='both')
 note.add(consultar,text="consultar")
 titulo=Label(consultar,text="Ingrese el Pais").pack()
 paa=StringVar()
 paa2=Entry(consultar,textvariable=paa).pack()
-Botonconsu=Button(consultar,text="consultar",command=consultacion).pack()"""
+Botonconsu=Button(consultar,text="consultar",command=consultacion).pack()
 
 ventana.mainloop()
