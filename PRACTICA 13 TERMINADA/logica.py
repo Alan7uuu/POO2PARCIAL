@@ -1,6 +1,8 @@
 import random 
 from tkinter import messagebox
 import tkinter as tk
+
+
 class logica:
     
     lista=[]
@@ -35,5 +37,22 @@ class logica:
             f=print( messagebox.askokcancel("contraseña",f'la contraseña es"{b}"'))
             if f == True:
                 print("si")
+        return b
+        
+    def comprobar (self,tam,mayus,espec):
+        a=int(tam)
+        c=str(espec)
+        d=str(mayus)
+        if c=="si" and d=="" and a==8:
+            messagebox.showinfo("Aviso","Su contraseña cuenta con una seguridad MODERADO")
+        elif c=="" and d=="si" and a==8:
+            messagebox.showinfo("Aviso","Su contraseña cuenta con una seguridad MODERADO")
+        elif c=="" and d=="" and a <=8:
+            messagebox.showinfo("Aviso","Su contraseña cuenta con una seguridad BAJA")
+        elif c=="si" and d=="si" and a >8 :
+            messagebox.showinfo("Aviso","Su contraseña cuenta con una seguridad FUERTE")
+        else:
+            pass
+    
         
        
