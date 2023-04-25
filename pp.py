@@ -1,25 +1,17 @@
-# Python3 program to convert
-# integer value to roman values
-  
-# Function to convert integer to Roman values
-def printRoman(number):
-    num = [1, 4, 5, 9, 10, 40, 50, 90,
-        100, 400, 500, 900, 1000]
-    sym = ["I", "IV", "V", "IX", "X", "XL",
-        "L", "XC", "C", "CD", "D", "CM", "M"]
-    i = 12
-      
-    while number:
-        div = number // num[i]
-        number %= num[i]
-  
-        while div:
-            print(sym[i], end = "")
-            div -= 1
-        i -= 1
-  
-# Driver code
-if __name__ == "__main__":
-    number = 5
-    print("Roman value is:", end = " ")
-    printRoman(number)
+from tkinter import messagebox
+def roman2int(romval):
+        if romval == "VX" or romval == "IIII" or romval == "VVVV" or romval == "XXXX" or romval == "LLLL" or romval == "CCCC" or romval == "DDDD" or romval == "MMMM" or romval == "VV" :
+            messagebox.showinfo("resultado", "no es un numero romano")
+        else:
+            romanos = {'I': 1, 'V': 5, 'X': 10,
+                'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+            total = 0
+            prev = 0
+            for letra in romval[::-1]:
+                valor = romanos[letra]
+                total += valor if valor >= prev else -valor
+                prev = valor
+            messagebox.showinfo("resultado", str(total))
+            
+            
+roman2int('VX')
