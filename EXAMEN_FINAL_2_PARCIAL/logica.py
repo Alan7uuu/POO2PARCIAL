@@ -6,6 +6,8 @@ class logica:
     def arabigo__romano(self,arabi):
         if arabi >= 50:
             messagebox.showerror("Alerta", "Numero esta fuera de rango escoje uno entre 1 y 50")
+        elif arabi ==0:
+            messagebox.showerror("Alerta","No existe este numero en el sistema Romano ingrese uno entre 1 y 50")
         else:
             
             x = ["", "X", "XX", "XXX", "XL", "L"]
